@@ -28,8 +28,6 @@ runtime contract still holds.
 ## Applying the bump
 
 - Bump `dockerTag` in `startos/manifest/index.ts`.
-- Set `version` in `startos/versions/current.ts` to `<new version>:0` and
-  rewrite `releaseNotes` in every locale.
 - Re-check the assumptions this package makes about the image, all of which are
   visible in its config (`docker buildx imagetools inspect neosmemo/memos:<tag>
   --format '{{json .Image}}'`):
