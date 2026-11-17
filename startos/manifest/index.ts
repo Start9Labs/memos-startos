@@ -13,9 +13,7 @@ export const manifest = setupManifest({
   volumes: ['main'],
   images: {
     memos: {
-      source: {
-        dockerBuild: { buildArgs: { IMAGE: 'neosmemo/memos:0.31.0' } },
-      },
+      source: { dockerTag: 'neosmemo/memos:26.11.1' },
       arch: ['x86_64', 'aarch64'],
     },
     reset: {

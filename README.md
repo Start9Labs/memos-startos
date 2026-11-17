@@ -11,12 +11,12 @@
 
 Memos is a self-hosted note-taking service that stores notes as Markdown in an
 embedded SQLite database and exposes them over REST and gRPC. This package runs
-the upstream image, with a temporary CA-store layer, and derives the one setting that a StartOS
+the upstream image unmodified and derives the one setting that a StartOS
 service cannot know for itself: the origin Memos advertises to the outside
 world.
 
 - **Upstream repo:** <https://github.com/usememos/memos>
-- **Wrapper repo:** <https://github.com/Start9-Community/memos-startos>
+- **Wrapper repo:** <https://github.com/Start9Labs/memos-startos>
 
 ---
 
@@ -39,11 +39,11 @@ world.
 
 ## Image and Container Runtime
 
-The upstream image, plus a small one this repository builds. The root `Dockerfile` upgrades the upstream image's CA store, a temporary layer that comes out once upstream ships an image built on a fixed store.
+The upstream image, run unmodified, plus a small one this repository builds.
 
 | Property      | Value                                            |
 | ------------- | ------------------------------------------------ |
-| Images        | `neosmemo/memos` + root `Dockerfile`, plus `reset` built from `reset/` |
+| Images        | `neosmemo/memos`, plus `reset` built from `reset/` |
 | Architectures | x86_64, aarch64                                   |
 | Command       | the image's own entrypoint                        |
 
@@ -120,8 +120,8 @@ System → Access and policies**.
 
 ## Installation and First-Run Flow
 
-Nothing is generated and nothing is pre-configured. Memos has no way to
-provision an administrator from the command line, so registration is open on a
+Nothing is generated and nothing is pre-configured. The package declares no
+bootstrap users in Memos' configuration directory, so registration is open on a
 fresh install and **the first account created through the web UI becomes the
 administrator**. Closing sign-up afterwards is done inside Memos' own settings,
 not through StartOS.
@@ -154,7 +154,7 @@ the form opens, with the preferred address (as above) preselected. It is
 **Reset Admin Password** (`reset-password`)
 
 - **When to run it** — the administrator has lost their password. Memos has no
-  password-recovery flow of its own and no CLI, so without this the account is
+  password-recovery flow or reset command of its own, so without this the account is
   unreachable and the notes behind it are unreadable.
 - **What it changes** — the `password_hash` of the lowest-numbered account
   holding the owner role, written straight into the SQLite database, plus that
@@ -166,8 +166,8 @@ the form opens, with the preferred address (as above) preselected. It is
   invalidates the previous one.
 - **What happens next** — start the service and sign in with the credentials
   returned. Sessions signed in with the old password are signed out, matching
-  what Memos does when a password is changed in the web UI; an already-issued
-  access token can remain valid for up to 15 minutes.
+  what Memos does when a password is changed in the web UI; access tokens are
+  bound to the password, so they stop working at once.
 - **Outputs** — the account's username, and the new password, masked and
   copyable. It is shown once per run.
 
@@ -212,8 +212,8 @@ files live outside this volume and are not captured by a StartOS backup.
 
 1. **SQLite only.** Memos also supports PostgreSQL and MySQL backends; this
    package does not expose them.
-2. **No administrator is provisioned.** Upstream offers no CLI or API to create
-   one, so the first web sign-up takes the role and closing registration is
+2. **No administrator is provisioned.** The package declares no bootstrap user
+   in Memos' configuration directory, so the first web sign-up takes the role and closing registration is
    done inside Memos. Recovering a lost password is the **Reset Admin
    Password** action's job — Memos itself has no recovery flow.
 3. **Public access is a Memos setting, not an interface choice.** Memos
@@ -230,7 +230,7 @@ files live outside this volume and are not captured by a StartOS backup.
 
 ```yaml
 package_id: memos
-image: neosmemo/memos + root Dockerfile (CA store upgrade) # plus a locally built `reset` image
+image: neosmemo/memos # plus a locally built `reset` image
 architectures:
   - x86_64
   - aarch64
