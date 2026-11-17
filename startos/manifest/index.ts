@@ -5,7 +5,7 @@ export const manifest = setupManifest({
   id: 'memos',
   title: 'Memos',
   license: 'MIT',
-  packageRepo: 'https://github.com/Start9-Community/memos-startos',
+  packageRepo: 'https://github.com/Start9Labs/memos-startos',
   upstreamRepo: 'https://github.com/usememos/memos',
   marketingUrl: 'https://usememos.com',
   donationUrl: null,
