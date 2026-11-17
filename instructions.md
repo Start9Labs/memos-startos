@@ -15,8 +15,8 @@
 
 ## Getting set up
 
-Memos has no way to create an administrator for you, so the first account wins
-the role.
+This package does not create an administrator, so the first account wins the
+role.
 
 1. Open the **Web Interface** from the Dashboard.
 2. **Create your account.** The first one created becomes the administrator of

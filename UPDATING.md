@@ -13,8 +13,9 @@ runtime contract still holds.
   gh release view -R usememos/memos --json tagName -q .tagName
   ```
 
-  GitHub tags carry a leading `v`; the Docker tags do not (`v0.30.0` →
-  `neosmemo/memos:0.30.0`). Confirm the tag exists for both architectures
+  Since 26.10.0 Memos uses calendar versions (`YY.MM`, optional `.N`, optional
+  `-rc.N`) with no `v` prefix, and the Docker tag is the same string
+  (`26.11.1` → `neosmemo/memos:26.11.1`). Skip `-rc` tags. Confirm the tag exists for both architectures
   before pinning it:
 
   ```sh
