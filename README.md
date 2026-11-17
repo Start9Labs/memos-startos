@@ -223,6 +223,11 @@ files live outside this volume and are not captured by a StartOS backup.
    flip it.
 4. **Attachments are backed up in full.** The volume is copied rather than
    synced incrementally, so backup size tracks total attachment size.
+5. **Updates from before 0.31.0 go through 0.31.0.** Memos refuses to start on
+   a database older than 0.31.0's schema, so the version graph declares
+   `0.31.0:0` with `up: IMPOSSIBLE` and StartOS will not update an older
+   install straight to the current version. Update to `0.31.0:3` and start it
+   once first.
 
 ---
 
