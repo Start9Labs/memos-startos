@@ -20,6 +20,7 @@ export const current = VersionInfo.of({
 **Before updating**
 
 - Update integrations and third-party clients that read or create comments: the comment-specific API calls and MCP tools are removed in favor of regular memos with a parent.
+- API and MCP memo lists, and API user statistics, now include comments by default. Integrations that expect top-level memos only must add \`parent == null\` to their filter.
 
 **After updating**
 
@@ -43,6 +44,7 @@ export const current = VersionInfo.of({
 **Antes de actualizar**
 
 - Actualiza las integraciones y los clientes de terceros que leen o crean comentarios: se eliminan las llamadas de API y herramientas MCP específicas de comentarios en favor de notas normales con una nota principal.
+- Las listas de notas de API y MCP, y las estadísticas de usuario de la API, ahora incluyen comentarios por defecto. Las integraciones que esperan solo notas principales deben añadir \`parent == null\` a su filtro.
 
 **Después de actualizar**
 
@@ -66,6 +68,7 @@ export const current = VersionInfo.of({
 **Vor dem Update**
 
 - Aktualisiere Integrationen und Drittanbieter-Clients, die Kommentare lesen oder erstellen: Die kommentarspezifischen API-Aufrufe und MCP-Werkzeuge entfallen zugunsten normaler Notizen mit einer übergeordneten Notiz.
+- Notizlisten über API und MCP sowie API-Benutzerstatistiken enthalten standardmäßig auch Kommentare. Integrationen, die nur übergeordnete Notizen erwarten, müssen ihrem Filter \`parent == null\` hinzufügen.
 
 **Nach dem Update**
 
@@ -89,6 +92,7 @@ export const current = VersionInfo.of({
 **Przed aktualizacją**
 
 - Zaktualizuj integracje i aplikacje zewnętrzne, które odczytują lub tworzą komentarze: usunięto wywołania API i narzędzia MCP przeznaczone dla komentarzy na rzecz zwykłych notatek z notatką nadrzędną.
+- Listy notatek w API i MCP oraz statystyki użytkowników w API domyślnie uwzględniają teraz komentarze. Integracje oczekujące tylko notatek nadrzędnych muszą dodać \`parent == null\` do filtra.
 
 **Po aktualizacji**
 
@@ -112,6 +116,7 @@ export const current = VersionInfo.of({
 **Avant la mise à jour**
 
 - Mettez à jour les intégrations et clients tiers qui lisent ou créent des commentaires : les appels d'API et outils MCP propres aux commentaires sont supprimés au profit de mémos ordinaires avec un parent.
+- Les listes de mémos via API et MCP, ainsi que les statistiques utilisateur de l'API, incluent désormais les commentaires par défaut. Les intégrations qui attendent uniquement des mémos de premier niveau doivent ajouter \`parent == null\` à leur filtre.
 
 **Après la mise à jour**
 
