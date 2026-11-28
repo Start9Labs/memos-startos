@@ -56,6 +56,10 @@ URL when Memos first starts: an instance with an address starts public, one
 without starts private. Change it there at any time; changing the instance URL
 later does not flip it.
 
+If you sign in with SSO, the instance URL is also the only address SSO works
+at: open Memos there to sign in or link an identity, and register
+`<instance URL>/auth/callback` as the redirect URI with your identity provider.
+
 ### If you lose your password
 
 Memos has no "forgot password" link and no way to email you a reset, so StartOS
@@ -75,7 +79,7 @@ instead.
 ### Actions
 
 - **Set Instance URL** — chooses the address Memos advertises. Only needed when
-  generated links should use a stable domain.
+  generated links or SSO sign-in should use a stable domain.
 - **Reset Admin Password** — mints a new administrator password when you are
   locked out, and signs out sessions using the old one. The service must be
   stopped first.
