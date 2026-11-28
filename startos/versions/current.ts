@@ -1,128 +1,138 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '26.11.2:0',
+  version: '26.11.3:0',
   releaseNotes: {
-    en_US: `Updated Memos to 26.11.2.
+    en_US: `Updated Memos to 26.11.3.
 
 **Features**
 
-- Show comments beside memos in every memo list: turn on Include comments in Settings › Preferences › This device
-- Reorder saved Views with Move up and Move down, and a Full width option for the timeline
-- The audience picker says who can read a memo, and the calendar month picker marks months that hold memos
+- Suggest tags with AI in the composer proposes tags for a draft, preferring the tags you already use (needs a text generation provider)
+- A Space has one shared timeline with every member's readable memos
+- Right-click a memo card to open its actions menu; the calendar lists every memo of a day
+- Settings › AI names each provider by its service, checks the connection on save, and offers a Try it playground
 
 **Fixes**
 
-- Thumbnails of externally linked attachments no longer render blank
-- Tag rules written as patterns show their memo counts
-- Long memos load and save faster
+- Editing or renaming an attachment, such as a saved drawing, keeps its place in the memo
+- Two uploads with the same filename at the same moment no longer overwrite each other
+- A failed archive import no longer deletes existing unlinked attachments
+- Webhook receivers that answer without a body count as delivered
 
 **Before updating**
 
-- Update integrations and third-party clients that read or create comments: the comment-specific API calls and MCP tools are removed in favor of regular memos with a parent.
-- API and MCP memo lists, and API user statistics, now include comments by default. Integrations that expect top-level memos only must add \`parent == null\` to their filter.
+- If you sign in with SSO: SSO now works only at the address chosen in Actions › Set Instance URL. Open Memos there to sign in, and make sure your identity provider's redirect URI is that address followed by \`/auth/callback\`.
 
 **After updating**
 
-- Compact mode moves to Settings › Preferences › This device and applies to every memo list; an existing choice carries over.
+- Administrators should open Settings › AI. A transcription setting without a model is turned off: choose its provider and model again. Providers no longer redirect, so enter each endpoint's final URL.
+- Links to a Space's Explore page no longer work; open the Space itself, which now shows every member's memos.
 
-[Full release notes](https://github.com/usememos/memos/releases/tag/26.11.2)`,
-    es_ES: `Memos actualizado a 26.11.2.
+[Full release notes](https://github.com/usememos/memos/releases/tag/26.11.3)`,
+    es_ES: `Memos actualizado a 26.11.3.
 
 **Novedades**
 
-- Muestra los comentarios junto a las notas en todas las listas: activa Incluir comentarios en Ajustes › Preferencias › Este dispositivo
-- Reordena las Vistas guardadas con Subir y Bajar, y una opción de Ancho completo para la línea de tiempo
-- El selector de audiencia indica quién puede leer una nota, y el selector de mes del calendario marca los meses que tienen notas
+- Sugerir etiquetas con IA en el editor propone etiquetas para un borrador, priorizando las que ya usas (requiere un proveedor de generación de texto)
+- Un Espacio tiene una única línea de tiempo compartida con las notas legibles de todos sus miembros
+- Haz clic derecho en una nota para abrir su menú de acciones; el calendario muestra todas las notas de un día
+- Ajustes › IA nombra cada proveedor por su servicio, comprueba la conexión al guardar y ofrece un área de prueba
 
 **Correcciones**
 
-- Las miniaturas de adjuntos enlazados externamente ya no aparecen en blanco
-- Las reglas de etiquetas escritas como patrones muestran su número de notas
-- Las notas largas se cargan y guardan más rápido
+- Editar o renombrar un adjunto, como un dibujo guardado, conserva su posición en la nota
+- Dos subidas con el mismo nombre de archivo al mismo tiempo ya no se sobrescriben
+- Una importación de archivo fallida ya no elimina adjuntos sin vincular existentes
+- Los receptores de webhooks que responden sin cuerpo cuentan como entregados
 
 **Antes de actualizar**
 
-- Actualiza las integraciones y los clientes de terceros que leen o crean comentarios: se eliminan las llamadas de API y herramientas MCP específicas de comentarios en favor de notas normales con una nota principal.
-- Las listas de notas de API y MCP, y las estadísticas de usuario de la API, ahora incluyen comentarios por defecto. Las integraciones que esperan solo notas principales deben añadir \`parent == null\` a su filtro.
+- Si inicias sesión con SSO: SSO ahora solo funciona en la dirección elegida en Acciones › Set Instance URL. Abre Memos allí para iniciar sesión y asegúrate de que la URI de redirección de tu proveedor de identidad sea esa dirección seguida de \`/auth/callback\`.
 
 **Después de actualizar**
 
-- El modo compacto pasa a Ajustes › Preferencias › Este dispositivo y se aplica a todas las listas de notas; la opción elegida se conserva.
+- Los administradores deben abrir Ajustes › IA. Una configuración de transcripción sin modelo queda desactivada: vuelve a elegir su proveedor y modelo. Los proveedores ya no siguen redirecciones, así que introduce la URL final de cada endpoint.
+- Los enlaces a la página Explorar de un Espacio ya no funcionan; abre el propio Espacio, que ahora muestra las notas de todos sus miembros.
 
-[Notas de versión completas](https://github.com/usememos/memos/releases/tag/26.11.2)`,
-    de_DE: `Memos auf 26.11.2 aktualisiert.
+[Notas de versión completas](https://github.com/usememos/memos/releases/tag/26.11.3)`,
+    de_DE: `Memos auf 26.11.3 aktualisiert.
 
 **Neuerungen**
 
-- Kommentare neben Notizen in jeder Notizliste anzeigen: Kommentare einbeziehen unter Einstellungen › Präferenzen › Dieses Gerät aktivieren
-- Gespeicherte Ansichten mit Nach oben und Nach unten umsortieren, dazu eine Option Volle Breite für die Zeitleiste
-- Die Zielgruppenauswahl zeigt, wer eine Notiz lesen kann, und die Monatsauswahl des Kalenders markiert Monate mit Notizen
+- Tags mit KI vorschlagen im Editor schlägt Tags für einen Entwurf vor und bevorzugt bereits verwendete Tags (benötigt einen Anbieter für Textgenerierung)
+- Ein Space hat eine gemeinsame Zeitleiste mit den lesbaren Notizen aller Mitglieder
+- Rechtsklick auf eine Notiz öffnet ihr Aktionsmenü; der Kalender listet jede Notiz eines Tages
+- Einstellungen › KI benennt jeden Anbieter nach seinem Dienst, prüft die Verbindung beim Speichern und bietet einen Testbereich
 
 **Fehlerbehebungen**
 
-- Vorschaubilder extern verlinkter Anhänge bleiben nicht mehr leer
-- Als Muster geschriebene Tag-Regeln zeigen ihre Notizanzahl
-- Lange Notizen laden und speichern schneller
+- Das Bearbeiten oder Umbenennen eines Anhangs, etwa einer gespeicherten Zeichnung, behält seine Position in der Notiz
+- Zwei gleichzeitige Uploads mit demselben Dateinamen überschreiben sich nicht mehr
+- Ein fehlgeschlagener Archivimport löscht keine bestehenden unverknüpften Anhänge mehr
+- Webhook-Empfänger, die ohne Inhalt antworten, gelten als zugestellt
 
 **Vor dem Update**
 
-- Aktualisiere Integrationen und Drittanbieter-Clients, die Kommentare lesen oder erstellen: Die kommentarspezifischen API-Aufrufe und MCP-Werkzeuge entfallen zugunsten normaler Notizen mit einer übergeordneten Notiz.
-- Notizlisten über API und MCP sowie API-Benutzerstatistiken enthalten standardmäßig auch Kommentare. Integrationen, die nur übergeordnete Notizen erwarten, müssen ihrem Filter \`parent == null\` hinzufügen.
+- Wenn du dich per SSO anmeldest: SSO funktioniert nur noch unter der Adresse, die unter Aktionen › Set Instance URL gewählt ist. Öffne Memos dort zur Anmeldung und stelle sicher, dass die Weiterleitungs-URI bei deinem Identitätsanbieter diese Adresse gefolgt von \`/auth/callback\` ist.
 
 **Nach dem Update**
 
-- Der Kompaktmodus wandert nach Einstellungen › Präferenzen › Dieses Gerät und gilt für jede Notizliste; eine bestehende Auswahl bleibt erhalten.
+- Administratoren sollten Einstellungen › KI öffnen. Eine Transkriptionseinstellung ohne Modell ist deaktiviert: Anbieter und Modell erneut wählen. Anbieter folgen keinen Weiterleitungen mehr, daher die endgültige URL jedes Endpunkts eintragen.
+- Links auf die Entdecken-Seite eines Space funktionieren nicht mehr; öffne den Space selbst, der jetzt die Notizen aller Mitglieder zeigt.
 
-[Vollständige Versionshinweise](https://github.com/usememos/memos/releases/tag/26.11.2)`,
-    pl_PL: `Zaktualizowano Memos do 26.11.2.
+[Vollständige Versionshinweise](https://github.com/usememos/memos/releases/tag/26.11.3)`,
+    pl_PL: `Zaktualizowano Memos do 26.11.3.
 
 **Nowości**
 
-- Komentarze obok notatek na każdej liście: włącz Uwzględniaj komentarze w Ustawienia › Preferencje › To urządzenie
-- Zmiana kolejności zapisanych Widoków przez Przesuń w górę i Przesuń w dół oraz opcja Pełna szerokość dla osi czasu
-- Wybór odbiorców pokazuje, kto może czytać notatkę, a wybór miesiąca w kalendarzu oznacza miesiące z notatkami
+- Sugeruj tagi z AI w edytorze proponuje tagi dla szkicu, preferując te, których już używasz (wymaga dostawcy generowania tekstu)
+- Przestrzeń ma jedną wspólną oś czasu z czytelnymi notatkami wszystkich członków
+- Kliknij notatkę prawym przyciskiem, aby otworzyć menu jej akcji; kalendarz pokazuje każdą notatkę danego dnia
+- Ustawienia › AI nazywa każdego dostawcę według jego usługi, sprawdza połączenie przy zapisie i oferuje obszar testowy
 
 **Poprawki**
 
-- Miniatury załączników podlinkowanych z zewnątrz nie są już puste
-- Reguły tagów zapisane jako wzorce pokazują liczbę notatek
-- Długie notatki wczytują się i zapisują szybciej
+- Edycja lub zmiana nazwy załącznika, np. zapisanego rysunku, zachowuje jego miejsce w notatce
+- Dwa jednoczesne przesłania plików o tej samej nazwie nie nadpisują się już nawzajem
+- Nieudany import archiwum nie usuwa już istniejących niepowiązanych załączników
+- Odbiorcy webhooków odpowiadający bez treści są uznawani za doręczonych
 
 **Przed aktualizacją**
 
-- Zaktualizuj integracje i aplikacje zewnętrzne, które odczytują lub tworzą komentarze: usunięto wywołania API i narzędzia MCP przeznaczone dla komentarzy na rzecz zwykłych notatek z notatką nadrzędną.
-- Listy notatek w API i MCP oraz statystyki użytkowników w API domyślnie uwzględniają teraz komentarze. Integracje oczekujące tylko notatek nadrzędnych muszą dodać \`parent == null\` do filtra.
+- Jeśli logujesz się przez SSO: SSO działa teraz tylko pod adresem wybranym w Akcje › Set Instance URL. Otwórz tam Memos, aby się zalogować, i upewnij się, że URI przekierowania u dostawcy tożsamości to ten adres z dopiskiem \`/auth/callback\`.
 
 **Po aktualizacji**
 
-- Tryb kompaktowy przenosi się do Ustawienia › Preferencje › To urządzenie i dotyczy każdej listy notatek; dotychczasowy wybór zostaje zachowany.
+- Administratorzy powinni otworzyć Ustawienia › AI. Ustawienie transkrypcji bez modelu jest wyłączone: wybierz ponownie dostawcę i model. Dostawcy nie podążają już za przekierowaniami, więc wpisz końcowy URL każdego punktu końcowego.
+- Linki do strony Eksploruj w Przestrzeni przestały działać; otwórz samą Przestrzeń, która teraz pokazuje notatki wszystkich członków.
 
-[Pełne informacje o wydaniu](https://github.com/usememos/memos/releases/tag/26.11.2)`,
-    fr_FR: `Memos mis à jour vers 26.11.2.
+[Pełne informacje o wydaniu](https://github.com/usememos/memos/releases/tag/26.11.3)`,
+    fr_FR: `Memos mis à jour vers 26.11.3.
 
 **Nouveautés**
 
-- Affichez les commentaires à côté des mémos dans toutes les listes : activez Inclure les commentaires dans Paramètres › Préférences › Cet appareil
-- Réorganisez les Vues enregistrées avec Monter et Descendre, et une option Pleine largeur pour la chronologie
-- Le sélecteur d'audience indique qui peut lire un mémo, et le sélecteur de mois du calendrier signale les mois contenant des mémos
+- Suggérer des étiquettes avec l'IA dans l'éditeur propose des étiquettes pour un brouillon, en privilégiant celles que vous utilisez déjà (nécessite un fournisseur de génération de texte)
+- Un Espace a une seule chronologie partagée avec les mémos lisibles de tous ses membres
+- Un clic droit sur un mémo ouvre son menu d'actions ; le calendrier liste chaque mémo d'une journée
+- Paramètres › IA nomme chaque fournisseur d'après son service, vérifie la connexion à l'enregistrement et propose un espace d'essai
 
 **Corrections**
 
-- Les miniatures des pièces jointes liées en externe ne s'affichent plus vides
-- Les règles d'étiquettes écrites sous forme de motifs affichent leur nombre de mémos
-- Les longs mémos se chargent et s'enregistrent plus vite
+- Modifier ou renommer une pièce jointe, comme un dessin enregistré, conserve sa place dans le mémo
+- Deux envois simultanés portant le même nom de fichier ne s'écrasent plus
+- Un import d'archive échoué ne supprime plus les pièces jointes non liées existantes
+- Les récepteurs de webhooks qui répondent sans corps sont comptés comme livrés
 
 **Avant la mise à jour**
 
-- Mettez à jour les intégrations et clients tiers qui lisent ou créent des commentaires : les appels d'API et outils MCP propres aux commentaires sont supprimés au profit de mémos ordinaires avec un parent.
-- Les listes de mémos via API et MCP, ainsi que les statistiques utilisateur de l'API, incluent désormais les commentaires par défaut. Les intégrations qui attendent uniquement des mémos de premier niveau doivent ajouter \`parent == null\` à leur filtre.
+- Si vous vous connectez par SSO : le SSO ne fonctionne plus qu'à l'adresse choisie dans Actions › Set Instance URL. Ouvrez Memos à cette adresse pour vous connecter, et vérifiez que l'URI de redirection chez votre fournisseur d'identité est cette adresse suivie de \`/auth/callback\`.
 
 **Après la mise à jour**
 
-- Le mode compact passe dans Paramètres › Préférences › Cet appareil et s'applique à toutes les listes de mémos ; un choix existant est conservé.
+- Les administrateurs doivent ouvrir Paramètres › IA. Un réglage de transcription sans modèle est désactivé : choisissez à nouveau son fournisseur et son modèle. Les fournisseurs ne suivent plus les redirections, saisissez donc l'URL finale de chaque point de terminaison.
+- Les liens vers la page Explorer d'un Espace ne fonctionnent plus ; ouvrez l'Espace lui-même, qui affiche désormais les mémos de tous ses membres.
 
-[Notes de version complètes](https://github.com/usememos/memos/releases/tag/26.11.2)`,
+[Notes de version complètes](https://github.com/usememos/memos/releases/tag/26.11.3)`,
   },
   migrations: {
     up: async ({ effects }) => {},
